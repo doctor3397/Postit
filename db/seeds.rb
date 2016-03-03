@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Post.create(title: "Asian Cooking", comment: "This is an Asian recipe.")
+Post.create(title: "Italian Cooking", comment: "Italian food recipes")
+Post.create(title: "Thai Cooking", comment: "This is Thai recipe")
+Post.create(title: "Japanese Cooking", comment: "This is Japanese reciepe")
