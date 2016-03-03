@@ -1,5 +1,28 @@
-<h3>Post Show Page</h3>
+<!--<h3>Post Show Page</h3>-->
 
-<p><%=  @post.title %></p>
-<p><%=  @post.comment %></p>
-<%= link_to "Post List Page", posts_path%>
+<%= render 'shared/title',  title: "Show post #{@post.id}: #{@post.title}"%>
+<div class "row">
+	<div class="col-md-8 well">
+	 <!--  <h3><%= @post.title%></h3> -->
+	  <p>
+	    <%= @post.comment%>
+	  </p>
+	</div>
+</div>
+
+<hr>
+
+<h4>All Comments</h4>
+<% @post.comments.each do |comment| %>
+	<div class="row">
+		<div class="col-md-6 well">
+			<p>
+				<%= comment.content %>
+			</p>
+		</div>
+	</div>
+<%end%>
+
+<div class="row">
+	<%= link_to 'go back to all posts', posts_path %>
+</div> 
