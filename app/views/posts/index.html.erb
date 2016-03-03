@@ -1,5 +1,10 @@
 <!--<h3>Post Lists</h3>-->
 <%= render 'shared/title', title: 'Post List'%>
+<div>
+	<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+</div> 
+<br>
+
 <% @posts.each do |post| %>
 	<div class="row">
 		<div class="well col-md-6">
