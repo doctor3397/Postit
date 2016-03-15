@@ -6,18 +6,6 @@
 <br>
 
 <% @posts.each do |post| %>
-	<div class="row">
-		<div class="well col-md-6">
-			<p><h4><%= post.title %></h4></p>
-			<p><%= post.comment %></p>
-			<div class="pull-right">
-				<small>posted by </small><%= post.user.name %>
-			</div>
-			<br>
-			<span>
-				<%= link_to "show this post", post_path(post)%>
-			</span>
-		</div>
-	</div>
+	<%= render 'post', post: post%>
 <% end %>
 
