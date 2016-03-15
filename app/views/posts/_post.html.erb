@@ -1,5 +1,9 @@
 <div class="row">
 	<div class="well col-md-6">
+
+		<%= render partial: 'categories/category', collection: post.categories %>
+
+		<br>
 		<p><h4><%= post.title %></h4></p>
 		<p><%= post.comment %></p>
 		<div class="pull-right">

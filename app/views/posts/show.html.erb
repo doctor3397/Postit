@@ -1,45 +1,50 @@
 <!--<h3>Post Show Page</h3>-->
+<%= render 'shared/title', title: "#{@post.title}"%>
 
-<%= render 'shared/title',  title: "Show post #{@post.id}: #{@post.title}"%>
-<div class "row">
-	<div class="col-md-8 well">
-	 <!--  <h3><%= @post.title%></h3> -->
-	  <p>
-	    <%= @post.comment%>
-	  </p>
-	</div>
-	<div class="pull-right">
-    <small>posted by </small><%= @post.user.name %>
-    </div>
+<div class="row">
+  <div class="col-md-8 well">
+  	<!--  <h3><%= @post.title%></h3> -->
+    <%= render partial: "categories/category", collection: @post.categories %>
+    <h3><%= @post.title %></h3>
+    <p>
+      <%= @post.comment %>
+    </p>
+    <br>
+    <small>posted by </small><%= " #{@post.user.name}" %>
+  </div>
 </div>
+
+<h4>All Comments:</h4>
+
+<% @post.comments.each do |comment| %>
+  <div class="row">
+    <div class="col-md-6 well">
+      <p>
+        <%= comment.content %>
+      </p>
+      <br>
+      <small>commented by </small><%= "#{comment.user.name}" %>
+    </div>
+  </div>
+<% end %>
+
+<% if logged_in? %>
+
+  <h4>Leave a comment:</h4>
+  <%= form_for [@post, @comment] do |f| %>
+    <div class="row">
+      <%= f.text_area :content, rows: 3, class: 'col-md-4' %>
+      <div class="col-md-2">
+        <%= f.submit 'Create Comment', class: 'btn btn-primary' %>
+      </div>
+    </div>
+    <br>
+  <% end %>
+
+<% end %>
 
 <hr>
 
-<h4>All Comments</h4>
-<% @post.comments.each do |comment| %>
-	<div class="row">
-		<div class="col-md-6 well">
-			<p>
-				<%= comment.content %>
-			</p>			
-		</div>
-		<div class="pull-right">
-		<small>commented by </small><%= comment.user.name %> 
-		</div>
-	</div>
-<%end%>
-
-<h4>Leave a comment:</h4>
-<%= form_for [@post, @comment] do |f| %>
-	<div class="row">
-		<%= f.text_area :content, rows: 3, class: 'col-md-4' %>
-		<div class="col-md-2">
-			<%= f.submit 'Create Comment', class: 'btn btn-primary' %>
-		</div>
-	</div>
-	<br>
-<%end%>
-
 <div class="row">
-	<%= link_to 'go back to all posts', posts_path %>
-</div> 
+  <%= link_to 'go back to all posts', posts_path %>
+</div>

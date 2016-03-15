@@ -1,0 +1,13 @@
+<% if category.title == 'Italian' %>
+  	<span class='badge alert-danger'>
+<% elsif category.title == 'Food' %>
+  	<span class='badge alert-success'>
+<% elsif category.title == 'Recipe' %>
+  	<span class='badge progress-bar-info'>
+<% elsif category.title == 'Mexican' %>
+  	<span class='badge progress-bar-warning'>
+<% elsif category.title == 'Korean' %>
+  	<span class='badge progress-bar-primary'>
+<% end %>
+  	<%= category.title %>
+</span>
