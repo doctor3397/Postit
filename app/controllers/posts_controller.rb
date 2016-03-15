@@ -15,8 +15,10 @@ class PostsController < ApplicationController
 
 	def create
 		post = Post.new(post_params)
+		post.user = current_user
 		#post.save!
 		if post.save!
+			flash[:notice] = "You've saved a post!"
 			redirect_to posts_path
 		else
 			render :new
