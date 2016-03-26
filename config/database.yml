@@ -33,4 +33,5 @@ production:
   database: d6r07pqgp3dtrj
   username: oopfspxegglcmb
   password: SJPs13fs-R_J0TvNJDLNHcaiMe
+  url: postgres://oopfspxegglcmb:SJPs13fs-R_J0TvNJDLNHcaiMe@ec2-107-22-175-206.compute-1.amazonaws.com:5432/d6r07pqgp3dtrj
 
